@@ -4,10 +4,11 @@ function Form(props) {
   const [name, setName] = useState("");
   function handleSubmit(e) {
     e.preventDefault();
-    if (name) {
-      props.addTask(name);
-      setName("");
+    if (!name.trim()) {
+      return;
     }
+    props.addTask(name);
+    setName("");
   }
   function handleChange(e) {
     setName(e.target.value);
